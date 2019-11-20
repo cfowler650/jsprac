@@ -30,3 +30,32 @@ function reverseHipsterfy(sentence) {
 
     return hipWords.join(' ');
 }
+
+
+function objectSelect(obj, callback) {
+    var matchingPairs = {}
+
+    for (k in obj) {
+        if (callback(obj[k], k)) {
+            matchingPairs[obj[k]] = k
+        }
+    }
+    return matchingPairs;
+}
+
+function divisibleByFivePairSum(array) {
+    var newArr = [];
+
+    for (var i = 0; i < array.length; i += 1) {
+        var num1 = array[i];
+        for (var j = i + 1; j < array.length; j += 1) {
+            var num2 = array[j];
+            var sum = num1 + num2;
+            if (sum % 5 === 0) {
+                newArr.push([i, j])
+            }
+        }
+    }
+
+    return newArr;
+}
