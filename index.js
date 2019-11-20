@@ -59,3 +59,23 @@ function divisibleByFivePairSum(array) {
 
     return newArr;
 }
+
+
+function longestBigram(sentence) {
+    var words = sentence.split(' ');
+    var longestBigram = [];
+    var highest = 0;
+
+    for (var i = 0; i < words.length - 1; i += 1) {
+        var word = words[i];
+        var nextWord = words[i + 1];
+        var sum = word.length + nextWord.length;
+
+        if (sum > highest) {
+            highest = sum;
+            longestBigram = [word, nextWord];
+        }
+    }
+
+    return longestBigram.join(' ');
+}
